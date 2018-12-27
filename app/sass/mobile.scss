@@ -1,0 +1,43 @@
+.mobile {
+    position: relative;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: $airgrey;
+    .container{
+        padding-top: 40px;
+        padding-bottom: 40px;
+        min-height: 695px;
+        background: url(../img/phone.png) left bottom no-repeat;
+        padding-left: 438px;
+    }
+    h2{
+        text-align: left;
+    }
+    p{
+        margin-bottom: 0;
+        line-height: 28px;
+    }
+    ul{
+        padding-left: 50px;
+        margin-top: 45px;
+        li{
+            padding-left: 40px;
+            margin-left: 0;
+            margin-bottom: 0.5em;
+            box-sizing: border-box;
+            position: relative;
+            list-style: none;
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.7em;
+                transform: translateY(-50%);
+                width: 21px;
+                height: 21px;
+                background: url(../img/item.svg) center no-repeat;
+            }
+            
+        }
+    }
+}
