@@ -1,0 +1,301 @@
+.tipitems {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.tip_more {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tip_pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        margin: 0 4px;
+
+        svg {
+            width: 22px;
+            height: 22px;
+
+            use {
+                transition: $transition;
+                fill: $lightbrown;
+            }
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &[disabled] {
+            cursor: default;
+            opacity: 0.4;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.tipitem {
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 0 33%;
+    max-width: 400px;
+    flex-direction: column;
+    position: relative;
+    transition: $transition;
+
+    .date {
+        transition: $transition;
+        z-index: 2;
+        position: absolute;
+        top: 35px;
+        left: 35px;
+        background: #252525;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 3px;
+        overflow: hidden;
+        padding-bottom: 3px;
+
+        time {
+            width: 50px;
+            background: #363636;
+            display: block;
+            font-size: 24px;
+            margin-bottom: 3px;
+        }
+    }
+
+    .imgholder {
+        display: flex;
+        flex: 0 0 220px;
+        height: 220px;
+        width: 100%;
+        position: relative;
+        transition: $transition;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            transition: $transition;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hover_icon {
+            opacity: 0;
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+
+            svg {
+                width: 26px;
+                height: 26px;
+            }
+
+            &.goto {
+                margin-left: -14px;
+
+                svg {
+                    use {
+                        fill: $lightbrown;
+                    }
+                }
+            }
+
+            &.zoom {
+                margin-left: 14px;
+
+                svg {
+                    use {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+
+        .slides_nav {
+            position: absolute;
+            z-index: 2;
+            padding: 20px 0;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            button {
+                margin: 0 4px;
+                width: 13px;
+                height: 13px;
+
+                &:after {
+                    width: 9px;
+                    height: 9px;
+                }
+            }
+        }
+    }
+
+    .textholder {
+        background: transparent;
+        padding: 25px 30px;
+        flex: 1 0 auto;
+        align-items: flex-start;
+        transition: $transition;
+
+        .caption {
+            transition: $transition;
+            font-size: 20px;
+            font-weight: 500;
+            color: $lightbrown;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: $mainfontcolor;
+            transition: $transition;
+        }
+
+        .more {
+            transition: $transition;
+            color: $lightbrown;
+            position: relative;
+            padding-right: 10px;
+            font-size: 14px;
+            align-self: flex-end;
+            text-decoration: none;
+
+            &:after {
+                content: '';
+                border: 4px solid transparent;
+                border-right: none;
+                border-left: 5px solid;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-40%);
+            }
+
+        }
+    }
+
+    &:hover,
+    &:focus {
+
+
+        .date {
+            background: #a48d72;
+
+            time {
+                background: $lightbrown;
+            }
+        }
+
+        .imgholder {
+            &:after {
+                opacity: 1;
+            }
+        }
+
+        .hover_icon {
+            opacity: 1;
+
+            &:hover,
+            &:focus {
+                opacity: 0.7;
+            }
+        }
+
+        .textholder {
+            background: #362f2d;
+
+            .caption {
+                color: $lightbrown;
+            }
+
+            .desc {
+                color: #fff;
+            }
+
+            .more {
+                color: $lightbrown;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.projects {
+    .tipitem {
+        .textholder {
+            z-index: 2;
+            background: $airgrey;
+            position: relative;
+            &:after{
+                transition: $transition;
+                content: '';
+                position: absolute;
+                border: 15px solid transparent;
+                border-top: none;
+                border-bottom: 10px solid $airgrey;
+                top: -10px;
+                left: 30px;
+            }
+        }
+
+        &:hover {
+            .textholder {
+                background: #362f2d;
+                &:after{
+                    border-bottom: 10px solid #362f2d;
+                }
+            }
+        }
+    }
+}
+
+.posts,
+.projects {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
