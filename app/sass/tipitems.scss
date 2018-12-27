@@ -122,7 +122,7 @@
             border: none;
             transform: translate(-50%, -50%);
             cursor: pointer;
-
+            transition: $transition;
             svg {
                 width: 26px;
                 height: 26px;
