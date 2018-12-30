@@ -9,6 +9,14 @@
 
     }
 
+    #menubtn {
+        display: none;
+    }
+
+    #menubtn + label {
+        display: none;
+    }
+
     .navblock {
         position: relative;
 
@@ -19,11 +27,12 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                text-align: center;
 
                 li {
                     display: inline-flex;
                     padding: 0 15px;
-
+                    text-align: left;
                     a,
                     span {
                         transition: $transition;
@@ -104,6 +113,7 @@
                 & + label {
                     svg {
                         use {
+                            fill: $lightbrown;
                             transition: $transition;
                         }
                     }
@@ -119,4 +129,114 @@
     }
 
 
+}
+
+@media screen and (max-width: 1199px) {
+    .main-header {
+        padding: 20px 0;
+
+        .navblock {
+            nav {
+                ul {
+                    li {
+                        padding: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .main-header {
+        padding-left: 65px;
+
+        .navblock {
+            transition: $transition;
+
+            nav {
+                transition: $transition;
+                transform: translateX(-100%);
+                margin: auto;
+                position: fixed;
+                z-index: 3;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: 200px;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow-y: auto;
+
+                ul {
+                    padding: 70px 0 30px;
+
+                    li {
+                        padding: 15px;
+                        display: block;
+
+                    }
+                }
+            }
+        }
+
+        #menubtn + label {
+            display: block;
+            position: fixed;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.3);
+            width: 40px;
+            height: 40px;
+            left: 15px;
+            cursor: pointer;
+            transition: $transition;
+
+            &:after,
+            &:before {
+                transition: $transition;
+                content: '';
+                width: 30px;
+                height: 2px;
+                background: #fff;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                margin-top: -1px;
+                margin-left: -15px;
+            }
+
+            &:before {
+                transform: translateY(-5px) rotate(0deg);
+            }
+
+            &:after {
+                transform: translateY(5px) rotate(0deg);
+            }
+
+            &:hover,
+            &:focus {
+                &:before {
+                    transform: translateY(-8px) rotate(0deg);
+                }
+
+                &:after {
+                    transform: translateY(8px) rotate(0deg);
+                }
+            }
+        }
+
+        #menubtn:checked + label {
+            &:before {
+                transform: translateY(0px) rotate(45deg);
+            }
+
+            &:after {
+                transform: translateY(0px) rotate(-45deg);
+            }
+        }
+
+        #menubtn:checked + label ~ .navblock nav {
+            transform: translateX(0);
+        }
+    }
 }

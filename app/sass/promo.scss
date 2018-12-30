@@ -1,4 +1,8 @@
 .promo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     padding: 50px 0;
     background: -webkit-linear-gradient(0deg, #211b19 0%, #4e3427 100%);
@@ -7,23 +11,29 @@
     background: -ms-linear-gradient(0deg, #211b19 0%, #4e3427 100%);
     background: linear-gradient(90deg, #211b19 0%, #4e3427 100%);
 
-    h2{
+    h2 {
         text-align: left;
         color: #fff;
         font-size: 28px;
         line-height: 1em;
         font-weight: 400;
-        span{
+
+        span {
             color: $lightbrown;
         }
     }
+
     p {
         font-size: 18px;
         color: #615855;
         margin-bottom: 0;
     }
-    
-    .btn{
+
+    .btn {
         text-align: center;
+    }
+
+    @media screen and (max-width: 991px) {
+        display: none;
     }
 }

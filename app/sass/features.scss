@@ -1,4 +1,8 @@
 .features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     padding: 30px 0;
     background: -webkit-linear-gradient(0deg, #211b19 0%, #4e3427 100%);
@@ -53,5 +57,8 @@
             background-color: $softgrey;
         }
 
+    }
+    @media screen and (max-width: 991px){
+        display: none;
     }
 }
